@@ -30,6 +30,7 @@ let movePlayer = (data, map) => {
         map.player.is_moved = false;
         game.checkCollision(map);
     }
+    console.log(map);
     return map;
 }
 
