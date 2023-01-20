@@ -5,10 +5,6 @@ const io = require('socket.io')(http);
 const path = require('path');
 const bodyParser = require('body-parser');
 
-
-
-
-
 const { Client } = require('pg');
 const client = new Client({host: 'localhost',port: 5432,database: 'test',user: 'postgres',password: 'admin'});
 client.connect();
@@ -22,9 +18,10 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+    console.log('User connected');
     socket.send('Hello from server');
     socket.on('message', (data) => {
-        console.log(data);
+        console.log(data);        
     }
     );
 });
