@@ -23,6 +23,7 @@ io.on('connection', (socket) => {
     let map = main.genGame();
     socket.on('message', (data) => {
         main.movePlayer(data, map);
+        console.log(map.enemies[0].pos);
     });
 });
 
