@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+    let map = main.genGame();
     socket.on('message', (data) => {
-        let map = main.genGame();
         main.movePlayer(data, map);
     });
 });

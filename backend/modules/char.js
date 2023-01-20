@@ -8,18 +8,22 @@ class Character {
     moveUp(){
         this.pos.y += 50;
         this.is_moved = true;
+        this.posMap = { xleft: this.pos.x, xright: this.pos.x+50, ytop: this.pos.y+50, ybottom: this.pos.y };
     };
     moveDown(){
         this.pos.y -= 50;
         this.is_moved = true;
+        this.posMap = { xleft: this.pos.x, xright: this.pos.x+50, ytop: this.pos.y+50, ybottom: this.pos.y };
     };
     moveLeft(){
         this.pos.x -= 50;
         this.is_moved = true;
+        this.posMap = { xleft: this.pos.x, xright: this.pos.x+50, ytop: this.pos.y+50, ybottom: this.pos.y };
     };
     moveRight(){
         this.pos.x += 50;
         this.is_moved = true;
+        this.posMap = { xleft: this.pos.x, xright: this.pos.x+50, ytop: this.pos.y+50, ybottom: this.pos.y };
     };
 }
 
