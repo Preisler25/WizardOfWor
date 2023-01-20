@@ -5,3 +5,7 @@ let checkCollision = (map) => {
         }
     }
 }
+
+module.exports = {
+    checkCollision
+}
