@@ -6,3 +6,7 @@ socket.on('connect', () => {
 socket.on('message', (data) => {
     console.log(data);
 });
+
+addEventListener('keydown', (e) => {
+    socket.emit('message', e.key);
+});
