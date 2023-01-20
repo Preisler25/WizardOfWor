@@ -21,12 +21,12 @@ io.on('connection', (socket) => {
     console.log('User connected');
     socket.send('Hello from server');
     socket.on('message', (data) => {
-        console.log(data);        
+        console.log(data);
     }
     );
 });
 
 
-http.listen(3000, () => {    
+http.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
