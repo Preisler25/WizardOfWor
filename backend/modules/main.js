@@ -14,3 +14,7 @@ let getData = (data) => {
             break;
     }
 }
+
+module.exports = {
+    getData
+}
