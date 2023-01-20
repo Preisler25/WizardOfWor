@@ -21,7 +21,8 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     socket.on('message', (data) => {
-        console.log(data);
+        let map = main.genGame();
+        main.movePlayer(data, map);
     });
 });
 
