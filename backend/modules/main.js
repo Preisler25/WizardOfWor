@@ -57,7 +57,7 @@ let moveEnemy = (map) => {
             case 3:
                 e.moveRight();
                 break;
-        }
+        }S
         e.test(map.rotpints)
     });
     checkCollision(map);
