@@ -6,12 +6,12 @@ let genGame = () => {
     let player = new char.Player("player", 0);
     map.player = player;
     map.rotpints.push(
+        new char.Rotpint("rotpints", [0, 3], {x:0 , y:0}),
+        new char.Rotpint("rotpints", [1, 3], {x:0 , y:433}),
         new char.Rotpint("rotpints", [0, 1, 3], {x:0 , y:100}),
-        new char.Rotpint("rotpints", [3,1], {x:0 , y:272}),
-        new char.Rotpint("rotpints", [1, 2], {x:590 , y:272}),
-        new char.Rotpint("rotpints", [0, 2, 1], {x:590 , y:100}),
-        new char.Rotpint("rotpints", [0, 2], {x:590 , y:0}),
-        new char.Rotpint("rotpints", [0, 3], {x:0 , y:0})
+        new char.Rotpint("rotpints", [0, 2], {x:910 , y:0}),
+        new char.Rotpint("rotpints", [1, 2], {x:910 , y:433}),
+        new char.Rotpint("rotpints", [0, 1, 2], {x:910 , y:100}),
         );
     map.enemies.push(
         new char.Enemy("base", 0),
