@@ -32,7 +32,7 @@ class Player extends Character {
     this.dir = dir;
     this.name = name;
     this.points = points;
-    this.pos = { x: 900, y: 0 };
+    this.pos = { x: 910, y: 0 };
   }
   moveUp(map){
     if (this.pos.y < 433){
