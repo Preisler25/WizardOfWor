@@ -26,15 +26,41 @@ let movePlayer = (data, map) => {
             map.player.moveRight();
             break;
     }
-    if (map.player.is_moved) {
-        map.player.is_moved = false;
-        game.checkCollision(map);
-    }
-    console.log(map);
+    checkCollision(map);
+    return map;
+}
+let moveEnemy = (map) => {
+    map.enemies.forEach(e => {
+        let rand = Math.floor(Math.random() * 4);
+        switch (rand) {
+            case 0:
+                e.moveUp();
+                break;
+            case 1:
+                e.moveDown();
+                break;
+            case 2:
+                e.moveLeft();
+                break;
+            case 3:
+                e.moveRight();
+                break;
+        }
+    });
+    checkCollision(map);
     return map;
 }
 
+let checkCollision = (map) => {
+    map.enemies.forEach(e => {
+        if (!e.check(map.player.pos)) {
+            map.ingame = false;
+        }
+    });
+}
+
 module.exports = {
+    moveEnemy,
     genGame,
     movePlayer
 }

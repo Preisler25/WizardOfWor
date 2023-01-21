@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const main = require('./modules/main');
 
 const { Client } = require('pg');
+const { loadavg } = require('os');
 const client = new Client({host: 'localhost',port: 5432,database: 'test',user: 'postgres',password: 'admin'});
 client.connect();
 
@@ -23,8 +24,16 @@ io.on('connection', (socket) => {
     let map = main.genGame();
     socket.on('message', (data) => {
         main.movePlayer(data, map);
-        console.log(map.enemies[0].pos);
     });
+    let game = setInterval(() => {
+        console.log(map.player.pos);
+        main.moveEnemy(map);
+        if (!map.ingame) {
+            socket.send('gameover');
+            console.log('gameover');
+            clearInterval(game);
+        }
+    }, 1000);
 });
 
 
