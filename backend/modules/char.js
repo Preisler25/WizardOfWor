@@ -35,50 +35,44 @@ class Player extends Character {
     this.pos = { x: 910, y: 0 };
   }
   moveUp(map){
+    this.test(map.rotpints);
     if (this.pos.y < 433){
-      if (this.dir == 0) {
+      if (this.dir == 0 || this.dir == 2) {
         this.pos.y += 1;
-      } else if (this.test(map.rotpints)) {
-        this.pos.y += 1;
-        this.dir = 0;
       }
     }
   };
   moveDown(map){
+    this.test(map.rotpints);
     if (this.pos.y < 433){
-      if (this.dir == 0) {
+      if (this.dir == 0 || this.dir == 2) {
         this.pos.y -= 1;
-      } else if (this.test(map.rotpints)) {
-        this.pos.y -= 1;
-        this.dir = 0;
-      }
+      } 
     }
   };
   moveLeft(map){
+    this.test(map.rotpints);
     if (this.pos.x > 0){
-      if (this.dir == 1) {
+      if (this.dir == 1|| this.dir == 2) {
         this.pos.x -= 1;
-      } else if (this.test(map.rotpints)) {
-        this.pos.x -= 1;
-        this.dir = 1;
       }
     }
   };
   moveRight(map){
+    this.test(map.rotpints);
     if (this.pos.x < 910){
-      if (this.dir == 1) {
+      if (this.dir == 1|| this.dir == 2) {
         this.pos.x += 1;
-      } else if (this.test(map.rotpints)) {
-        this.pos.x += 1;
-        this.dir = 1;
       }
     }
   };
   test(rotpints){
     rotpints.forEach(r => {
-        if (Math.abs(this.pos.x - r.pos.x) < 10 && Math.abs(this.pos.y - r.pos.y) < 10){
-            return true;
-        }
+      console.log(Math.abs(this.pos.x - r.pos.x) +' '+ Math.abs(this.pos.y - r.pos.y));
+      if (this.pos.x - r.pos.x < 10 && this.pos.y - r.pos.y < 10){
+        this.dir = 2;
+        return true;
+      }
     });
   }
 }
