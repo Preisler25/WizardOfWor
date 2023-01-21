@@ -3,7 +3,7 @@ const Map = require("./map");
 
 let genGame = () => {
     let map = new Map();
-    let player = new char.Player("player", 0);
+    let player = new char.Player("player", 0, 1);
     map.player = player;
     map.rotpints.push(
         new char.Rotpint("rotpints", [0, 3], {x:0 , y:0}),
@@ -24,16 +24,16 @@ let genGame = () => {
 let movePlayer = (data, map) => {
     switch (data) {
         case "ArrowUp":
-            map.player.moveUp();
+            map.player.moveUp(map);
             break;
         case "ArrowDown":
-            map.player.moveDown();
+            map.player.moveDown(map);
             break;
         case "ArrowLeft":
-            map.player.moveLeft();
+            map.player.moveLeft(map);
             break;
         case "ArrowRight":
-            map.player.moveRight();
+            map.player.moveRight(map);
             break;
     }
     checkCollision(map);

@@ -25,11 +25,61 @@ class Character {
 }
 
 class Player extends Character {
-  constructor(name, points) {
-    super(name, points);
+  constructor(name, points, dir) {
+    super(name, points, dir);
+    // 0 le fel
+    // 1 ballra jobbra
+    this.dir = dir;
     this.name = name;
     this.points = points;
     this.pos = { x: 900, y: 0 };
+  }
+  moveUp(map){
+    if (this.pos.y < 433){
+      if (this.dir == 0) {
+        this.pos.y += 1;
+      } else if (this.test(map.rotpints)) {
+        this.pos.y += 1;
+        this.dir = 0;
+      }
+    }
+  };
+  moveDown(map){
+    if (this.pos.y < 433){
+      if (this.dir == 0) {
+        this.pos.y -= 1;
+      } else if (this.test(map.rotpints)) {
+        this.pos.y -= 1;
+        this.dir = 0;
+      }
+    }
+  };
+  moveLeft(map){
+    if (this.pos.x > 0){
+      if (this.dir == 1) {
+        this.pos.x -= 1;
+      } else if (this.test(map.rotpints)) {
+        this.pos.x -= 1;
+        this.dir = 1;
+      }
+    }
+  };
+  moveRight(map){
+    if (this.pos.x < 910){
+      if (this.dir == 1) {
+        this.pos.x += 1;
+      } else if (this.test(map.rotpints)) {
+        this.pos.x += 1;
+        this.dir = 1;
+      }
+    }
+  };
+  test(rotpints){
+    rotpints.forEach(r => {
+        if (Math.abs(this.pos.x - r.pos.x) < 10 && Math.abs(this.pos.y - r.pos.y) < 10){
+            return true;
+        }
+    });
   }
 }
 
