@@ -22,7 +22,7 @@ class Player extends Character {
     super(name, points);
     this.name = name;
     this.points = points;
-    this.pos = { x: 51, y: 0 };
+    this.pos = { x: 100, y: 0 };
   }
 }
 

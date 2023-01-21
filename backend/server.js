@@ -25,15 +25,21 @@ io.on('connection', (socket) => {
     socket.on('message', (data) => {
         main.movePlayer(data, map);
     });
-    let game = setInterval(() => {
-        console.log(map.player.pos);
-        main.moveEnemy(map);
+    let game = setInterval(() => {       
         if (!map.ingame) {
             socket.send('gameover');
             console.log('gameover');
             clearInterval(game);
+            clearInterval(send);
+            clearInterval(moveEnemys);
         }
-    }, 1000);
+    }, 1000/60);
+    let moveEnemys = setInterval(() => {
+        main.moveEnemy(map);
+    }, 1000/30);
+    let send = setInterval(() => {
+        socket.send('map ' + JSON.stringify(map));
+    }, 1000/60);
 });
 
 
