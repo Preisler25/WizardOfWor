@@ -33,6 +33,12 @@ io.on('connection', (socket) => {
             clearInterval(send);
             clearInterval(moveEnemys);
         }
+        if (!socket.connected) {
+            console.log('disconnected');
+            clearInterval(game);
+            clearInterval(send);
+            clearInterval(moveEnemys);
+        }
     }, 1000/60);
     let moveEnemys = setInterval(() => {
         main.moveEnemy(map);

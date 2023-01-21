@@ -30,20 +30,31 @@ let drawMap = (map) => {
     Gmap.appendChild(player);
     player.style.backgroundColor = 'red';
     player.style.position = 'fixed';
-    player.style.height = '50px';
-    player.style.width = '50px';
-    player.style.left = Jmap.player.pos.x + 'px';
-    player.style.bottom = Jmap.player.pos.y + 'px';
+    player.style.height = '150px';
+    player.style.width = '150px';
+    player.style.left = Jmap.player.pos.x*3 + 'px';
+    player.style.bottom = Jmap.player.pos.y*3 + 'px';
 
     Jmap.enemies.forEach(e => {
         let enemy = document.createElement('div');
         Gmap.appendChild(enemy);
         enemy.style.backgroundColor = 'blue';
         enemy.style.position = 'fixed';
-        enemy.style.height = '50px';
-        enemy.style.width = '50px';
-        enemy.style.left = e.pos.x + 'px';
-        enemy.style.bottom = e.pos.y + 'px';   
+        enemy.style.height = '150px';
+        enemy.style.width = '150px';
+        enemy.style.left = e.pos.x*3 + 'px';
+        enemy.style.bottom = e.pos.y*3 + 'px';   
+    });
+
+    Jmap.rotpints.forEach(e => {
+        let rotpint = document.createElement('div');
+        Gmap.appendChild(rotpint);
+        rotpint.style.backgroundColor = 'yellow';
+        rotpint.style.position = 'fixed';
+        rotpint.style.height = '150px';
+        rotpint.style.width = '150px';
+        rotpint.style.left = e.pos.x*3 + 'px';
+        rotpint.style.bottom = e.pos.y*3 + 'px';   
     });
 }
 

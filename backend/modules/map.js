@@ -3,6 +3,7 @@ class Map{
         this.player = null;
         this.enemies = [];
         this.bullets = [];
+        this.rotpints = [];
         this.ingame = true;
     }
 }
