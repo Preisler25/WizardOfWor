@@ -4,7 +4,7 @@ class Character {
     this.pos = { x: 0, y: 0 };
   }
     moveUp(){
-      if (this.pos.y < 272){
+      if (this.pos.y < 433){
         this.pos.y += 1;
       }
     };
@@ -19,7 +19,7 @@ class Character {
       }
     };
     moveRight(){
-      if (this.pos.x < 590){
+      if (this.pos.x < 910){
         this.pos.x += 1;}
     };
 }
@@ -29,7 +29,7 @@ class Player extends Character {
     super(name, points);
     this.name = name;
     this.points = points;
-    this.pos = { x: 100, y: 0 };
+    this.pos = { x: 900, y: 0 };
   }
 }
 

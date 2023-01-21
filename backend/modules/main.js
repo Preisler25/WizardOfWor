@@ -7,7 +7,7 @@ let genGame = () => {
     map.player = player;
     let Rotpint = new char.Rotpint("rotpints", [0, 1, 3], {x:0 , y:100});
     map.rotpints.push(Rotpint);
-    let Rotpint1 = new char.Rotpint("rotpints", [3], {x:0 , y:272});
+    let Rotpint1 = new char.Rotpint("rotpints", [3,1], {x:0 , y:272});
     map.rotpints.push(Rotpint1);
     let Rotpint2 = new char.Rotpint("rotpints", [1, 2], {x:590 , y:272});
     map.rotpints.push(Rotpint2);
@@ -19,6 +19,8 @@ let genGame = () => {
     map.rotpints.push(Rotpint5);
     let enemy = new char.Enemy("base", 0);
     map.enemies.push(enemy);
+    let enemy1 = new char.Enemy("base", 1);
+    map.enemies.push(enemy1);
     return map;
 }
 
