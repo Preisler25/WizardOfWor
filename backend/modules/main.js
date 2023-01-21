@@ -58,7 +58,6 @@ let moveEnemy = (map) => {
                 e.moveRight();
                 break;
         }
-        console.log(e.pos);
         e.test(map.rotpints)
     });
     checkCollision(map);
