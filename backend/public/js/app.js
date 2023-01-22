@@ -1,4 +1,5 @@
 const socket = io('ws://localhost:3000');
+let pastmap = null;
 
 socket.on('connect', () => {
     console.log('connected');
@@ -16,6 +17,8 @@ socket.on('message', (data) => {
 
 let drawMap = (map) => {
     let Jmap = JSON.parse(map);
+
+    pastmap = Jmap;
 
     let Gmap = document.getElementById('map');
     Gmap.innerHTML = '';
@@ -61,6 +64,10 @@ let drawMap = (map) => {
         bullet.style.bottom = e.pos.y*2 + 'px';   
     });
 }
+
+setInterval(() => {
+    console.log(pastmap);
+}, 1000);
 
 addEventListener('keydown', (e) => {
     socket.emit('message', e.key);
