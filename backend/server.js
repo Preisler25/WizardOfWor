@@ -38,15 +38,15 @@ io.on('connection', (socket) => {
             clearInterval(send);
             clearInterval(moveEnemys);
         }
-    }, 1000/60);
+    }, 1000/144);
     let moveEnemys = setInterval(() => {
         main.moveEnemy(map);
         main.moveBullet(map);
         main.test(map)
-    }, 1000/30);
+    }, 1000/144);
     let send = setInterval(() => {
         socket.send('map ' + JSON.stringify(map));
-    }, 1000/60);
+    }, 1000/144);
 });
 
 
