@@ -9,6 +9,8 @@ let genGame = () => {
         new char.Rotpint("balalsó", [0, 3], {x:0 , y:0}, 3),
         new char.Rotpint("balfelső", [1, 3], {x:0 , y:433}, 5),
         new char.Rotpint("balközép", [0, 1, 3], {x:0 , y:100}, 9),
+        new char.Rotpint("középközép", [0, 1, 3], {x:455 , y:100}, 9),
+        new char.Rotpint("fentközép", [1, 2, 3], {x:455 , y:433}, 8),
         new char.Rotpint("jobbalsó", [0, 2], {x:910 , y:0}, 4),
         new char.Rotpint("jobbfelső", [1, 2], {x:910 , y:433} , 6),
         new char.Rotpint("jobbközép", [0, 1, 2], {x:910 , y:100}, 10),
