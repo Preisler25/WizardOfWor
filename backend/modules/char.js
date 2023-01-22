@@ -129,7 +129,7 @@ class Bullet extends Character {
   }
   test(enemys){
     enemys.forEach(e => {
-      if (Math.abs(this.pos.x - e.pos.x) <= 50 && Math.abs(this.pos.y - e.pos.y) <= 50){
+      if (Math.abs(this.pos.x - e.pos.x) <= 30 && Math.abs(this.pos.y - e.pos.y) <= 30){
         this.valid = false;   
         e.isAlive = false;
       }
