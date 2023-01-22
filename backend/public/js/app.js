@@ -19,6 +19,7 @@ let drawMap = (map) => {
     let Jmap = JSON.parse(map);
 
     pastmap = Jmap;
+    console.log(Jmap);
 
     let Gmap = document.getElementById('map');
     Gmap.innerHTML = '';
@@ -65,9 +66,6 @@ let drawMap = (map) => {
     });
 }
 
-setInterval(() => {
-    console.log(pastmap);
-}, 1000);
 
 addEventListener('keydown', (e) => {
     socket.emit('message', e.key);
