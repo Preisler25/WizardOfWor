@@ -17,8 +17,6 @@ socket.on('message', (data) => {
 let drawMap = (map) => {
     let Jmap = JSON.parse(map);
 
-    console.log(Jmap);
-
     let Gmap = document.getElementById('map');
     Gmap.innerHTML = '';
 

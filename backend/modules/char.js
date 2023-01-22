@@ -77,7 +77,6 @@ class Player extends Character {
   test(rotpints){
     let validCheck = false;
     rotpints.forEach(r => {
-      console.log(r.pos.x, this.pos.x, r.pos.y, this.pos.y);
       if (this.pos.x == r.pos.x && this.pos.y == r.pos.y){
         validCheck = true;
       }
@@ -104,28 +103,28 @@ class Bullet extends Character {
   moveUp(){
     if (this.pos.y < 433){
       this.pos.y += 1;
-    }else if (this.pos.y = 433){
+    }else if (this.pos.y == 433){
       this.valid = false;
     }
   }
   moveDown(){
     if (this.pos.y > 0){
       this.pos.y -= 1;
-    }else if (this.pos.y = 0){
+    }else if (this.pos.y == 0){
       this.valid = false;
     }
   }
   moveLeft(){
     if (this.pos.x > 0){
       this.pos.x -= 1;
-    }else if (this.pos.x = 0){
+    }else if (this.pos.x == 0){
       this.valid = false;
     }
   }
   moveRight(){
     if (this.pos.x < 910){
       this.pos.x += 1;
-    }else if (this.pos.x = 910){
+    }else if (this.pos.x == 910){
       this.valid = false;
     }
   }
