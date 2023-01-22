@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 const main = require('./modules/main');
 
 const { Client } = require('pg');
-const { loadavg } = require('os');
 const client = new Client({host: 'localhost',port: 5432,database: 'test',user: 'postgres',password: 'admin'});
 client.connect();
 
@@ -42,6 +41,8 @@ io.on('connection', (socket) => {
     }, 1000/60);
     let moveEnemys = setInterval(() => {
         main.moveEnemy(map);
+        main.moveBullet(map);
+        main.test(map)
     }, 1000/30);
     let send = setInterval(() => {
         socket.send('map ' + JSON.stringify(map));

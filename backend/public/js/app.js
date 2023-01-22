@@ -52,6 +52,16 @@ let drawMap = (map) => {
         rotpint.style.left = e.pos.x*2 + 'px';
         rotpint.style.bottom = e.pos.y*2 + 'px';   
     });
+    Jmap.bullets.forEach(e => {
+        let bullet = document.createElement('div');
+        Gmap.appendChild(bullet);
+        bullet.style.backgroundColor = 'black';
+        bullet.style.position = 'fixed';
+        bullet.style.height = '10px';
+        bullet.style.width = '10px';
+        bullet.style.left = e.pos.x*2 + 'px';
+        bullet.style.bottom = e.pos.y*2 + 'px';   
+    });
 }
 
 addEventListener('keydown', (e) => {

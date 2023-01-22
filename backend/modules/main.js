@@ -35,6 +35,8 @@ let movePlayer = (data, map) => {
         case "ArrowRight":
             map.player.moveRight(map);
             break;
+        case "Control":
+            map.player.shoot(map);
     }
     checkCollision(map);
     return map;
@@ -61,16 +63,55 @@ let moveEnemy = (map) => {
     return map;
 }
 
+let moveBullet = (map) => {
+    map.bullets.forEach(b => {
+        switch (b.dir) {
+            case 0:
+                b.moveUp();
+                break;
+            case 1:
+                b.moveDown();
+                break;
+            case 2:
+                b.moveLeft();
+                break;
+            case 3:
+                b.moveRight();
+                break;
+        }
+    });
+    return map;
+}
+
+let test = (map) => {
+    map.enemies.forEach(e => {
+        if(!e.isAlive){
+            map.enemies.splice(map.enemies.indexOf(e), 1);
+        }
+    });
+    map.bullets.forEach(b => {
+        if(!b.valid){
+            map.bullets.splice(map.bullets.indexOf(b), 1);
+        }
+    });
+    return map;
+}
+
 let checkCollision = (map) => {
     map.enemies.forEach(e => {
         if (!e.check(map.player.pos)) {
             map.ingame = false;
         }
     });
+    map.bullets.forEach(b => {
+        b.test(map.enemies);
+    });
 }
 
 module.exports = {
+    test,
     moveEnemy,
     genGame,
-    movePlayer
+    movePlayer,
+    moveBullet
 }
