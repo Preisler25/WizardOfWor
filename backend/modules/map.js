@@ -10,11 +10,14 @@ class Map{
     }
     genRandomEnemy = () => {
         if (this.enemies.length == 0){
-        let randoml = Math.floor(Math.random() * 3);
+        let randoml = Math.floor(Math.random() * 5);
+        console.log(randoml);
         for (let i = 0; i < randoml; i++){
-            let random = this.rotpints.length-1;
-            let random_dir = this.rotpints[random].dirs.length-1;
-            this.enemies.push(new char.Enemy("enemy", 0, this.rotpints[random].dirs[Math.floor(Math.random() * random_dir)], this.rotpints[random].pos));
+            let random = Math.floor(Math.random() * 4);
+            let randomPos = Math.floor(Math.random() * this.rotpints.length);
+            let posx = this.rotpints[randomPos].pos.x;
+            let posy = this.rotpints[randomPos].pos.y;
+            this.enemies.push(new char.Enemy("enemy", random, {x:posx , y:posy}));
             }
         }
     }

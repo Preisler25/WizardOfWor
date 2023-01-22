@@ -96,7 +96,7 @@ let test = (map) => {
             map.bullets.splice(map.bullets.indexOf(b), 1);
         }
     });
-    map.genRandomEnemy()
+    map.genRandomEnemy();
     return map;
 }
 
