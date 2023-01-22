@@ -3,7 +3,7 @@ class Character {
     this.pos = { x: 0, y: 0 };
   }
     moveUp(){
-      if (this.pos.y < 433){
+      if (this.pos.y < 440){
         this.pos.y += 1;
       }
     };
@@ -36,50 +36,48 @@ class Player extends Character {
   }
   moveUp(map){
     this.test(map.rotpints);
-    if (this.pos.y < 433){
+    if (this.pos.y < 440){
       if (this.dir == 0 || this.dir == 1 || this.dir == 3 || this.dir == 4 || this.dir == 7 || this.dir == 9 || this.dir == 10) {
-        this.pos.y += 4;
+        this.pos.y += 5;
         this.shdir = 0;
         this.dir = 1;
-      }
+
     }
+  }
   };
   moveDown(map){
     this.test(map.rotpints);
     if (this.pos.y > 0){
       if (this.dir == 0 || this.dir == 1 || this.dir == 5 || this.dir == 6 || this.dir == 8 || this.dir == 9 || this.dir == 10) {
-        this.pos.y -= 4;
+        this.pos.y -= 5;
         this.shdir = 1;
         this.dir = 1;
-      } 
+      }
     }
   };
   moveLeft(map){
     this.test(map.rotpints);
     if (this.pos.x > 0){
       if (this.dir == 0|| this.dir == 2 || this.dir == 4 || this.dir == 6 || this.dir == 7 || this.dir == 8 || this.dir == 10) {
-        this.pos.x -= 4;
+        this.pos.x -= 5;
         this.shdir = 2;
         this.dir = 2;
-      }
     }
+  }
   };
   moveRight(map){
-    this.test(map.rotpints);
-    if (this.pos.x < 910){
-      if (this.dir == 0 || this.dir == 2 || this.dir == 3 || this.dir == 5  || this.dir == 7 || this.dir == 8 || this.dir == 9) {
-        this.pos.x += 4;
-        this.shdir = 3;
-        this.dir = 2;
+      this.test(map.rotpints);
+      if (this.pos.x < 910){
+        if (this.dir == 0 || this.dir == 2 || this.dir == 3 || this.dir == 5  || this.dir == 7 || this.dir == 8 || this.dir == 9) {
+          this.pos.x += 5;
+          this.shdir = 3;
+          this.dir = 2;
       }
     }
   };
   test(rotpints){
     rotpints.forEach(r => {
       if (Math.abs(this.pos.x - r.pos.x) < 5 && Math.abs(this.pos.y - r.pos.y) < 5){
-        this.dir = 0;
-      }
-      else if (Math.abs(this.pos.x - r.pos.x) == 5 && Math.abs(this.pos.y - r.pos.y) == 5){
         this.dir = r.dir;
       }
     });
@@ -102,9 +100,9 @@ class Bullet extends Character {
     this.valid = true;
   }
   moveUp(){
-    if (this.pos.y < 433){
+    if (this.pos.y < 440){
       this.pos.y += 5;
-    }else if (this.pos.y >= 433){
+    }else if (this.pos.y >= 440){
       this.valid = false;
     }
   }
