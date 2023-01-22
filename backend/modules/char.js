@@ -101,6 +101,34 @@ class Bullet extends Character {
     this.dir = dir;
     this.valid = true;
   }
+  moveUp(){
+    if (this.pos.y < 433){
+      this.pos.y += 1;
+    }else if (this.pos.y = 433){
+      this.valid = false;
+    }
+  }
+  moveDown(){
+    if (this.pos.y > 0){
+      this.pos.y -= 1;
+    }else if (this.pos.y = 0){
+      this.valid = false;
+    }
+  }
+  moveLeft(){
+    if (this.pos.x > 0){
+      this.pos.x -= 1;
+    }else if (this.pos.x = 0){
+      this.valid = false;
+    }
+  }
+  moveRight(){
+    if (this.pos.x < 910){
+      this.pos.x += 1;
+    }else if (this.pos.x = 910){
+      this.valid = false;
+    }
+  }
   test(enemys){
     enemys.forEach(e => {
       if (Math.abs(this.pos.x - e.pos.x) <= 25 && Math.abs(this.pos.y - e.pos.y) <= 25){
