@@ -138,10 +138,11 @@ class Bullet extends Character {
 }
 
 class Enemy extends Character {
-    constructor(type, dir) {
-        super(type, dir);
+    constructor(type, dir, pos) {
+        super(type, dir, pos);
         this.type = type;
         this.dir = dir;
+        this.pos = pos;
         this.isAlive = true;
     }
     check(playerPos){

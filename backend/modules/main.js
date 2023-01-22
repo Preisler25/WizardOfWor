@@ -23,6 +23,19 @@ let genGame = () => {
     return map;
 }
 
+let genRandomEnemy = (map) => {
+    if (map.enemies.length = 0){
+        let randoml = Math.floor(Math.random() * 3);
+        for (let i = 0; i < randoml; i++){
+    let random = map.rotpints.lenght;
+    let randomdir = map.rotpints[random].dirs.lenght;
+    let dir = map.rotpints[random].dirs[randomdir];
+    let pos = map.rotpints[random].pos;
+    map.enemies.push(new char.Enemy("base", dir,pos));
+    }
+}
+}
+
 let movePlayer = (data, map) => {
     switch (data) {
         case "ArrowUp":
@@ -96,6 +109,7 @@ let test = (map) => {
             map.bullets.splice(map.bullets.indexOf(b), 1);
         }
     });
+    genRandomEnemy(map);
     return map;
 }
 
