@@ -5,19 +5,56 @@ const io = require('socket.io')(http);
 const path = require('path');
 const bodyParser = require('body-parser');
 
+const sqlfucntions = require('./modules/sqlfunctions');
+
 const main = require('./modules/main');
 
-const { Client } = require('pg');
-const client = new Client({host: 'localhost',port: 5432,database: 'test',user: 'postgres',password: 'admin'});
-client.connect();
+/*
+
+sqlfucntions.register(incom)
+incom = {username, password, password2, email}
+
+sqlfucntions.login(incom)
+incom = {username, password}
+
+
+
+*/
+
+
 
 app.set('viewengine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
-    res.render(path.join(__dirname, 'views', 'index.ejs'));
+    res.render(path.join(__dirname, 'views', 'login.ejs'));
 });
+
+app.post('/login', (req, res) => {
+    let incom = req.body;
+    //sqlLogin
+    sqlfucntions.login(incom).then((data) => {
+        if (data) {
+            res.render(path.join(__dirname, 'views', 'game.ejs'));
+        } else {
+            res.render(path.join(__dirname, 'views', 'login.ejs'));
+        }
+    });
+});
+
+app.post('/register', (req, res) => {
+    let incom = req.body;
+    //sqlRegister
+    sqlfucntions.register(incom).then((data) => {
+        if (data) {
+            res.render(path.join(__dirname, 'views', 'game.ejs'));
+        } else {
+            res.render(path.join(__dirname, 'views', 'login.ejs'));
+        }
+    });
+});
+
 
 io.on('connection', (socket) => {
     let map = main.genGame();
@@ -31,6 +68,8 @@ io.on('connection', (socket) => {
             clearInterval(game);
             clearInterval(send);
             clearInterval(moveEnemys);
+            //saving data 
+            //sqlsave(map.points )
         }
         if (!socket.connected) {
             console.log('disconnected');
