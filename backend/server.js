@@ -17,9 +17,6 @@ incom = {username, password, password2, email}
 sqlfucntions.login(incom)
 incom = {username, password}
 
-
-
-ws
 */
 
 
@@ -54,6 +51,10 @@ app.post('/register', (req, res) => {
             res.render(path.join(__dirname, 'views', 'login.ejs'));
         }
     });
+});
+
+app.get('/game', (req, res) => {
+    res.render(path.join(__dirname, 'views', 'index.ejs'));
 });
 
 
