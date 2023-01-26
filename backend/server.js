@@ -34,7 +34,7 @@ app.post('/login', (req, res) => {
     //sqlLogin
     sqlfucntions.login(incom).then((data) => {
         if (data) {
-            res.render(path.join(__dirname, 'views', 'game.ejs'));
+            res.render(path.join(__dirname, 'views', 'index.ejs'));
         } else {
             res.render(path.join(__dirname, 'views', 'login.ejs'));
         }
@@ -46,7 +46,7 @@ app.post('/register', (req, res) => {
     //sqlRegister
     sqlfucntions.register(incom).then((data) => {
         if (data) {
-            res.render(path.join(__dirname, 'views', 'game.ejs'));
+            res.render(path.join(__dirname, 'views', 'index.ejs'));
         } else {
             res.render(path.join(__dirname, 'views', 'login.ejs'));
         }
