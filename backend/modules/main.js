@@ -15,10 +15,10 @@ let genGame = () => {
         new char.Rotpint("jobbfelső", [1, 2], {x:910 , y:440} , 6),
         new char.Rotpint("jobbközép", [0, 1, 2], {x:910 , y:100}, 10),
         );
+        
     map.enemies.push(
         new char.Enemy("base", 0, { x: 0, y: 0 }),
         new char.Enemy("base", 1, { x: 0, y: 0 })
-
     );
     return map;
 }

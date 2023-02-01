@@ -13,11 +13,16 @@ class Map{
         let randoml = Math.floor(Math.random() * 5);
         console.log(randoml);
         for (let i = 0; i < randoml; i++){
-            let random = Math.floor(Math.random() * 4);
             let randomPos = Math.floor(Math.random() * this.rotpints.length);
             let posx = this.rotpints[randomPos].pos.x;
             let posy = this.rotpints[randomPos].pos.y;
-            this.enemies.push(new char.Enemy("enemy", random, {x:posx , y:posy}));
+            if (posx == this.player.pos.x && posy == this.player.pos.y) {console.log("foglalt");}
+            else {
+                let randomlist = this.rotpints[randomPos].dirs;
+                let randomlent = Math.floor(Math.random() * randomlist.length);
+                let random = randomlist[randomlent]
+                this.enemies.push(new char.Enemy("enemy", random, {x:posx , y:posy}));
+            }
             }
         }
     }
