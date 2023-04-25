@@ -1,0 +1,29 @@
+.player2{
+    background-image: url("/sources/?file=spaceship1.png");
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    background-size: 100px 100px;
+}
+.player{
+    background-image: url("/sources/?file=spaceship2.png");
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    background-size: 100px 100px;
+}
+.rotpint{
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    opacity: 50%;
+    background-color: rgba(255, 255, 0, 50);
+}
+
+.enemy{
+    background-image: url("/sources/?file=enemy.png");
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    background-size: 100px 100px;
+}

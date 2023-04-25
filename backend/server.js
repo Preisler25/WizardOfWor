@@ -28,6 +28,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', (req, res) => {
     res.render(path.join(__dirname, 'views', 'index.ejs'));
 });
+app.get('/css', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'css', 'main.css'));
+});
+
+app.get('/sources', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'sources', req.query.file));
+});
 
 io.on('connection', (socket) => {
     let map = main.genGame();
