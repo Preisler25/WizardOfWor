@@ -4,7 +4,9 @@ const Map = require("./map");
 let genGame = () => {
     let map = new Map();
     let player = new char.Player("player", 0, 1);
+    let player2 = new char.Player("player", 0, 1);
     map.player = player;
+    map.player2 = player2;
     map.rotpints.push(
         new char.Rotpint("balalsó", [0, 3], {x:0 , y:0}, 3),
         new char.Rotpint("balfelső", [1, 3], {x:0 , y:440}, 5),
@@ -39,6 +41,22 @@ let movePlayer = (data, map) => {
             break;
         case "Control":
             map.player.shoot(map);
+            break;
+        case "w":
+            map.player2.moveUp(map);
+            break;
+        case "s":
+            map.player2.moveDown(map);
+            break;
+        case "a":
+            map.player2.moveLeft(map);
+            break;
+        case "d":
+            map.player2.moveRight(map);
+            break;
+        case "q":
+            map.player2.shoot(map);
+            break;
     }
     checkCollision(map);
     return map;

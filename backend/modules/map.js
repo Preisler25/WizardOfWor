@@ -3,6 +3,7 @@ const char = require("./char");
 class Map {
     constructor() {
         this.player = null;
+        this.player2 = null;
         this.enemies = [];
         this.bullets = [];
         this.rotpints = [];

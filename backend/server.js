@@ -26,37 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
-    res.render(path.join(__dirname, 'views', 'login.ejs'));
-});
-
-app.post('/login', (req, res) => {
-    let incom = req.body;
-    //sqlLogin
-    sqlfucntions.login(incom).then((data) => {
-        if (data) {
-            res.render(path.join(__dirname, 'views', 'index.ejs'));
-        } else {
-            res.render(path.join(__dirname, 'views', 'login.ejs'));
-        }
-    });
-});
-
-app.post('/register', (req, res) => {
-    let incom = req.body;
-    //sqlRegister
-    sqlfucntions.register(incom).then((data) => {
-        if (data) {
-            res.render(path.join(__dirname, 'views', 'index.ejs'));
-        } else {
-            res.render(path.join(__dirname, 'views', 'login.ejs'));
-        }
-    });
-});
-
-app.get('/game', (req, res) => {
     res.render(path.join(__dirname, 'views', 'index.ejs'));
 });
-
 
 io.on('connection', (socket) => {
     let map = main.genGame();

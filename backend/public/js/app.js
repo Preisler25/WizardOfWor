@@ -33,6 +33,15 @@ let drawMap = (map) => {
     player.style.left = Jmap.player.pos.x*2 + 'px';
     player.style.bottom = Jmap.player.pos.y*2 + 'px';
 
+    let player2 = document.createElement('div');
+    Gmap.appendChild(player2);
+    player2.style.backgroundColor = 'green';
+    player2.style.position = 'fixed';
+    player2.style.height = '100px';
+    player2.style.width = '100px';
+    player2.style.left = Jmap.player2.pos.x*2 + 'px';
+    player2.style.bottom = Jmap.player2.pos.y*2 + 'px';
+
     Jmap.enemies.forEach(e => {
         let enemy = document.createElement('div');
         Gmap.appendChild(enemy);
