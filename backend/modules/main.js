@@ -120,7 +120,7 @@ let test = (map) => {
 
 let checkCollision = (map) => {
     map.enemies.forEach(e => {
-        if (!e.check(map.player.pos)) {
+        if (!e.check(map.player.pos) && !e.check(map.player2.pos)) {
             map.ingame = false;
         }
     });

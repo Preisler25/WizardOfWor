@@ -83,7 +83,7 @@ class Player extends Character {
     });
   }
   shoot(map){
-    if (map.bullets.length < 1){
+    if (map.bullets.length < 5){
     let posx = this.pos.x + 25;
     let posy = this.pos.y + 25;
     map.bullets.push(new Bullet({posx, posy}, this.shdir));
